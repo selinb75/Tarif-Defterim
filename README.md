@@ -4,7 +4,6 @@ React JS ile geliştirdiğim tarif yönetim uygulaması.
 Web Geliştirme; JavaScript Proje Yönergesi kapsamında hazırlandı. 
 Tarif ekleme, listeleme, güncelleme ve silme (CRUD) işlemleri yapılabilir.
 
-
 ## Özellikler
 - Örnek tarifler DummyJSON API'sinden `fetch` ile çekilir
 - Veriler LocalStorage'da saklanır, sayfa yenilense de kaybolmaz
@@ -23,19 +22,29 @@ npm run dev
 
 ## Klasör Yapısı
 ```
-src/
-├── components/   RecipeCard, RecipeForm, RecipeList
-├── hooks/        useRecipes (veri çekme ve CRUD mantığı)
-├── interfaces/   tarif şablonu
-├── pages/        Home
-└── utils/        LocalStorage yardımcıları
+tarif-defteri/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── RecipeCard.jsx    # tek bir tarifi gösteren kart
+│   │   ├── RecipeForm.jsx    # tarif ekleme ve düzenleme formu
+│   │   └── RecipeList.jsx    # kartları listeleyen bileşen
+│   ├── hooks/
+│   │   └── useRecipes.js     # veri çekme ve CRUD mantığı
+│   ├── interfaces/
+│   │   └── recipe.js         # tarif şablonu
+│   ├── pages/
+│   │   └── Home.jsx          # ana sayfa
+│   ├── utils/
+│   │   └── storage.js        # LocalStorage yardımcıları
+│   ├── App.jsx               # uygulamanın giriş bileşeni
+│   ├── index.css             # tüm stiller
+│   └── main.jsx              # React'i sayfaya bağlayan dosya
+├── index.html
+├── package.json
+├── screenshot.png
+└── README.md
 ```
 
-## Yönergedeki Adımlar
-- [x] Kütüphane seçimi: React
-- [x] Kurulum ve IDE ile açma
-- [x] Components, Pages, Interfaces klasörleri
-- [x] Pure CSS
-- [x] Ekle, Listele, Güncelle, Sil işlemleri
+https://stately-dusk-ceeb49.netlify.app
 
-- [ ] Netlify ile yayına alma
