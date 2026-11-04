@@ -19,6 +19,10 @@ React JS, JavaScript, HTML, CSS, Vite, LocalStorage, REST API
 npm install
 npm run dev
 ```
+#Canlı demo
+```
+https://stately-dusk-ceeb49.netlify.app
+```
 
 ## Klasör Yapısı
 ```
@@ -42,11 +46,11 @@ tarif-defteri/
 │   └── main.jsx              # React'i sayfaya bağlayan dosya
 ├── index.html
 ├── package.json
-├── screenshot.png
+
 └── README.md
 ```
-
-https://stately-dusk-ceeb49.netlify.app
+#Video
+```
 https://github.com/user-attachments/assets/26d5f3b3-88dc-4a2f-9e6d-375f6c1b5d81
 
-
+```
