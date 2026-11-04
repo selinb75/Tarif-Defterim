@@ -1,4 +1,4 @@
-# Tarif Defterim
+# Tarif Defterim🥙 🥗 🍝
 
 React JS ile geliştirdiğim tarif yönetim uygulaması. 
 Web Geliştirme; JavaScript Proje Yönergesi kapsamında hazırlandı. 
@@ -47,4 +47,6 @@ tarif-defteri/
 ```
 
 https://stately-dusk-ceeb49.netlify.app
+https://github.com/user-attachments/assets/26d5f3b3-88dc-4a2f-9e6d-375f6c1b5d81
+
 
