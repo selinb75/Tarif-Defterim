@@ -1,16 +1,41 @@
-# React + Vite
+# Tarif Defterim
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React JS ile geliştirdiğim tarif yönetim uygulaması. 
+Web Geliştirme; JavaScript Proje Yönergesi kapsamında hazırlandı. 
+Tarif ekleme, listeleme, güncelleme ve silme (CRUD) işlemleri yapılabilir.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Özellikler
+- Örnek tarifler DummyJSON API'sinden `fetch` ile çekilir
+- Veriler LocalStorage'da saklanır, sayfa yenilense de kaybolmaz
+- Yeni tarif ekleme, mevcut tarifi düzenleme ve silme
+- Form doğrulaması (tarif adı boş bırakılamaz)
+- Pure CSS ile responsive tasarım
 
-## React Compiler
+## Kullanılan Teknolojiler
+React JS, JavaScript, HTML, CSS, Vite, LocalStorage, REST API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Kurulum
+```
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Klasör Yapısı
+```
+src/
+├── components/   RecipeCard, RecipeForm, RecipeList
+├── hooks/        useRecipes (veri çekme ve CRUD mantığı)
+├── interfaces/   tarif şablonu
+├── pages/        Home
+└── utils/        LocalStorage yardımcıları
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Yönergedeki Adımlar
+- [x] Kütüphane seçimi: React
+- [x] Kurulum ve IDE ile açma
+- [x] Components, Pages, Interfaces klasörleri
+- [x] Pure CSS
+- [x] Ekle, Listele, Güncelle, Sil işlemleri
+
+- [ ] Netlify ile yayına alma
