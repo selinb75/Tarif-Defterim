@@ -19,7 +19,7 @@ React JS, JavaScript, HTML, CSS, Vite, LocalStorage, REST API
 npm install
 npm run dev
 ```
-#Canlı demo
+## Canlı demo
 ```
 https://stately-dusk-ceeb49.netlify.app
 ```
