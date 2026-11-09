@@ -52,6 +52,12 @@ tarif-defteri/
 
 ## Video
 ```
-https://github.com/user-attachments/assets/26d5f3b3-88dc-4a2f-9e6d-375f6c1b5d81
+
+
+https://github.com/user-attachments/assets/899464e5-d498-40c7-96a8-0f3f3fe3ec68
+
+
+
+
 ```
 
