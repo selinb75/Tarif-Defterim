@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600;700&display=swap');
 
 :root {
@@ -54,18 +53,26 @@ h2 {
 
 form {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 25px;
-  margin-bottom: 35px;
-  box-shadow: 0 5px 18px rgba(73, 55, 45, 0.05);
+  border-top: 5px solid var(--accent);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 28px rgba(73, 55, 45, 0.08);
+}
+
+form h2 {
+  margin: 0 0 4px;
+  font-size: 1.7rem;
+  color: var(--accent-dark);
 }
 
 label {
   display: grid;
   gap: 8px;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -74,26 +81,102 @@ input,
 select,
 textarea {
   font: inherit;
+  font-weight: 400;
   width: 100%;
   padding: 12px 14px;
   background: #FFFDF9;
   color: var(--ink);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #BBA995;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #D5C5AB;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
+  background: #fff;
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(135, 151, 122, 0.15);
+  box-shadow: 0 0 0 3px rgba(135, 151, 122, 0.2);
 }
 
 textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+/* Form butonları */
+
+form button[type="submit"] {
+  padding: 13px 20px;
+  font-size: 1rem;
+  background: var(--accent);
+}
+
+form button[type="submit"]:hover {
+  background: var(--accent-dark);
+}
+
+/* Vazgeç butonu */
+form button[type="button"] {
+  padding: 13px 20px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+form button[type="button"]:hover {
+  background: var(--tint);
+  color: var(--ink);
+}
+
+/* Bilgisayarda form iki sütunlu düzen alır */
+@media (min-width: 701px) {
+  form {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  form > h2,
+  form > label:nth-of-type(1),  /* Tarif adı */
+  form > label:nth-of-type(2) { /* Resim linki */
+    grid-column: span 6;
+  }
+
+  form > label:nth-of-type(3),  /* Mutfak */
+  form > label:nth-of-type(4),  /* Hazırlık süresi */
+  form > label:nth-of-type(5) { /* Zorluk */
+    grid-column: span 2;
+  }
+
+  form > label:nth-of-type(6),  /* Malzemeler */
+  form > label:nth-of-type(7) { /* Yapılışı */
+    grid-column: span 3;
+  }
+
+  form > button[type="submit"] {
+    grid-column: span 6;
+  }
+
+  /* Vazgeç butonu da varsa (düzenleme modu) yan yana dizilir */
+  form > button[type="submit"]:not(:last-child) {
+    grid-column: span 4;
+  }
+
+  form > button[type="button"] {
+    grid-column: span 2;
+  }
 }
 
 /* Butonlar */
@@ -181,6 +264,137 @@ article .btn-edit:hover {
   background: var(--green-dark);
 }
 
+/* Kart butonları (eşit genişlikte tek satır) */
+
+.kart-butonlar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.kart-butonlar button {
+  margin: 0;
+  width: 100%;
+  padding: 10px 6px;
+  white-space: nowrap;
+}
+
+/* ===== Tarif detay penceresi (modal) ===== */
+.modal-arka {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 28, 20, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+  animation: arka-gir 0.2s ease;
+}
+
+.modal {
+  position: relative;
+  background: #fdf9f0;
+  color: #3b2a20;
+  width: min(640px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 0 0 28px;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  animation: modal-gir 0.25s ease;
+}
+
+/* Resim üstte, kenardan kenara */
+.modal img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Resim dışındaki her şeye yan boşluk */
+.modal > :not(img):not(.modal-kapat) {
+  padding-inline: 28px;
+}
+
+.modal h2 {
+  margin: 22px 0 6px;
+  font-size: 1.9rem;
+  color: #8b4a2b;
+}
+
+.modal > p {
+  margin: 0 0 18px;
+  color: #8a7a6d;
+}
+
+.modal h3 {
+  margin: 22px 0 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: #8b4a2b;
+  border-bottom: 2px solid #e8dccb;
+  padding-bottom: 6px;
+}
+
+.modal ul,
+.modal ol {
+  margin: 0;
+  padding-left: 48px;
+  line-height: 1.7;
+}
+
+.modal li {
+  margin-bottom: 4px;
+}
+
+.modal li::marker {
+  color: #a8643f;
+  font-weight: 700;
+}
+
+/* Kapatma butonu */
+.modal-kapat {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #8b4a2b;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-kapat:hover {
+  background: #a8643f;
+  color: #fff;
+  transform: none;
+}
+
+/* Animasyonlar */
+@keyframes arka-gir {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-gir {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* Mobil görünüm */
 
 @media (max-width: 600px) {
@@ -193,10 +407,16 @@ article .btn-edit:hover {
   }
 
   form {
-    padding: 18px;
+    padding: 20px;
   }
 
   .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Telefonda modal biraz daha sade */
+@media (max-width: 520px) {
+  .modal img { height: 200px; }
+  .modal > :not(img):not(.modal-kapat) { padding-inline: 18px; }
 }
