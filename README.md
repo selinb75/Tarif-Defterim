@@ -21,7 +21,7 @@ npm run dev
 ```
 ## Canlı demo
 ```
-https://stately-dusk-ceeb49.netlify.app
+https://creative-taiyaki-1d11a0.netlify.app
 ```
 
 ## Klasör Yapısı
