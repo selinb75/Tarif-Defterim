@@ -1,3 +1,5 @@
+
+
 # Tarif Defterim🥙 🥗 🍝
 
 React JS ile geliştirdiğim tarif yönetim uygulaması. 
@@ -58,6 +60,6 @@ https://github.com/user-attachments/assets/899464e5-d498-40c7-96a8-0f3f3fe3ec68
 
 
 
-
+<img width="1371" height="1005" alt="selinb" src="https://github.com/user-attachments/assets/895a848b-60e5-4921-9462-869dcb0c28b9" />
 ```
 
